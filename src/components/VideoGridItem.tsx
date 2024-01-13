@@ -1,4 +1,5 @@
 import formatDuration from "../utils/formatDuration";
+import { formatTimeAgo } from "../utils/formatTimeAgo";
 
 type VideoGridItemProps = {
   id: string;
@@ -18,7 +19,7 @@ type VideoGridItemProps = {
 const VIEW_FORMATTER = new Intl.NumberFormat(undefined, {notation: "compact"})
 
 const VideoGridItem = ({
-  id,
+
   title,
   channel,
   views,
@@ -46,7 +47,7 @@ const VideoGridItem = ({
                 {channel.name}
             </a>
             <div className="text-secondary-text text-sm">
-                {VIEW_FORMATTER.format(views)} Views ● 
+                {VIEW_FORMATTER.format(views)} Views • {formatTimeAgo(postedAt)}
             </div>
         </div>
     </div>
